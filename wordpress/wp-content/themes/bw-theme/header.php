@@ -13,7 +13,7 @@
         <div class="container">
             <nav class="menu__desktop">
                 <ul class="menu">
-            <li class="menu__item active"><a href="#">Родное дерево</a></li>
+            <li class="menu__item active"><a href="<?= get_home_url(); ?>">Родное дерево</a></li>
             <li class="menu__item"><a href="#about">Что ты такое?</a></li>
             <li class="menu__item"><a href="#team">Банда</a></li>
             <li class="menu__item"><?php the_custom_logo(); ?></li>
@@ -28,7 +28,7 @@
         <div class="menu__burger"><span>toggle menu</span></div>
     </div>
         <ul class="menu">
-            <li class="menu__item active"><a href="#">Родное дерево</a></li>
+            <li class="menu__item active"><a href="<?= get_home_url(); ?>">Родное дерево</a></li>
             <li class="menu__item"><a href="#about">Что ты такое?</a></li>
             <li class="menu__item"><a href="#team">Банда</a></li>
             <li class="menu__item"><a href="#provide">Орехи и шишки</a></li>
@@ -37,9 +37,9 @@
         </ul>
     </nav>
     <div class="header__content">
-        <h1 class="header__title">Белкино дупло</h1>
-        <p class="header__text">Хватит притворяться травоядным!</p>
-        <a href="" class="header__button">Узнать про белок больше</a>
+        <h1 class="header__title"><?= CFS()->get('header_title') ?></h1>
+        <p class="header__text"><?= CFS()->get('header_slogan') ?></p>
+        <a href="#about" class="header__button"><?= CFS()->get('header_button') ?></a>
     </div>
         </div>
     </header>

@@ -1,24 +1,21 @@
 <?php get_header(); ?>
     <!--Что ты такое?-->
-    <div class="about" id="about">
+    <div class="about" id="about" style="background: url(<?= CFS()->get('background_white'); ?>) center 101% repeat-x, 
+    url(<?= CFS()->get('background_black'); ?>) center 101% repeat-x, #1d1d1d;">
         <div class="container">
             <div class="about__inner">
+                <?php 
+                $loop = CFS()->get('card');
+                foreach ($loop as $row) {
+                    ?>
                 <div class="about__item">
-                    <div class="about__year">2020</div>
-                    <div class="about__text">Стали люди жить в дуплах своих и жили так два года...</div>
+                    <div class="about__year"><?= $row ['card_year'] ?></div>
+                    <div class="about__text"><?= $row ['card_text'] ?></div>
                 </div>
-                <div class="about__item">
-                    <div class="about__year">2035</div>
-                    <div class="about__text">Сервис услуг по лущению шишек и колке орехов преобразовывается в международную корпорацию "Расколотим и полущим Inc"</div>
-                </div>
-                <div class="about__item">
-                    <div class="about__year">2050</div>
-                    <div class="about__text">Разделение стран на два блока "Ударники" и "Подавители", вековой спор надо орехи разбивать или раздавливать перешел в горячую фазу.</div>
-                </div>
-                <div class="about__item">
-                    <div class="about__year">2150</div>
-                    <div class="about__text">Корпорация "Расколотим и полущим Inc" создает международную организацию "Лига Лущения", всеобщий мир на планете.</div>
-                </div>
+                    <?php
+                }
+                ?>
+                
             </div>
         </div>
     </div>

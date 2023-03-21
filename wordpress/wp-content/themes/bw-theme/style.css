@@ -90,14 +90,12 @@ margin: 5 auto 43px;
 }
 /*Что ты такое*/
 .about {
-height: 1129px;
+min-height: 1129px;
 background-color: #1d1d1d;
 padding-top: 128px;
 padding-bottom: 271px;
-background: url(../img/bulding-fon-white.png) center 101% repeat-x,
-            url(../img/Forest-PNG-File-Download-Free.png) center 101% repeat-x,
-            #1d1d1d;
-  background-size: contain, cover; 
+
+  /*background-size: contain, cover; */
 }
 .about__inner {
     display: grid;
