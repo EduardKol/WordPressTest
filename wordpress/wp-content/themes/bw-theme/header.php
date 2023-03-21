@@ -16,7 +16,7 @@
             <li class="menu__item active"><a href="#">Родное дерево</a></li>
             <li class="menu__item"><a href="#about">Что ты такое?</a></li>
             <li class="menu__item"><a href="#team">Банда</a></li>
-            <li class="menu__item"><a href="#"><img src="img/logo.png" alt="" class="logo"></a></li>
+            <li class="menu__item"><?php the_custom_logo(); ?></li>
             <li class="menu__item"><a href="#provide">Орехи и шишки</a></li>
             <li class="menu__item"><a href="#">Сказки-рассказки</a></li>
             <li class="menu__item"><a href="#contact">Постучать в дупло</a></li>
@@ -24,7 +24,7 @@
     </nav>
     <nav class="menu__mobile">
         <div class="menu__inner">
-        <a href="#"><img src="img/logo.png" alt="" class="logo"></a>
+        <?php the_custom_logo(); ?>
         <div class="menu__burger"><span>toggle menu</span></div>
     </div>
         <ul class="menu">
