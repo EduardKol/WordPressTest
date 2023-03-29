@@ -1,7 +1,7 @@
 <?php get_header(); ?>
     <!--Что ты такое?-->
-    <div class="about" id="about" style="background: url(<?= CFS()->get('background_white'); ?>) center 101% repeat-x, 
-    url(<?= CFS()->get('background_black'); ?>) center 101% repeat-x, #1d1d1d;">
+    <div class="about" id="about" style="background: url(<?= CFS()->get('background_white') ?>) center 101% repeat-x, 
+    url(<?= CFS()->get('background_black') ?>) center 101% repeat-x, #1d1d1d;">
         <div class="container">
             <div class="about__inner">
                 <?php 
@@ -23,37 +23,60 @@
     <div class="team" id="team">
         <div class="container">
             <div class="block__head">
-                <h2 class="block__title">Наша банда</h2>
-                <p class="block__text">We are small but effective and ...</p>
-            </div>
-            <div class="team__inner">
-                    <div class="team__item">
-                                <img class="team__item-img" src="img/team1.jpg" alt="">
-                                <h3 class="team__item-title">Белко Один</h3>
-                                <p class="team__item-text">Главный ударник всей рощи</p>
+                <h2 class="block__title"><?= CFS()->get('team_title'); ?></h2>
+                <p class="block__text"><?= CFS()->get('team_description'); ?></p>
+                </div>                               
+                <div class="team__inner">
+
+    <!-- Swiper -->
+        <div class="swiper mySwiper">
+            <div class="swiper-wrapper">
+            
+                    <?php
+                        $loop = CFS()->get('team_card');
+                        foreach ($loop as $row) {
+                        ?> 
+                        <div class="swiper-slide">                      
+                        <div class="team__item">                                                
+                                <img class="team__item-img" src="<?= $row ['team_img'] ?>" alt="">
+                                <h3 class="team__item-title"><?= $row ['team_name'] ?></h3>
+                                <p class="team__item-text"><?= $row ['team_post'] ?></p>
                             <div class="team__icon-box">
-                                <a href="#"><i class="icon-vkontakte"></i></a>
-                                <a href="#"><i class="icon-whatsapp"></i></a>
-                            </div>
-                    </div>
-                    <div class="team__item">
-                        <img class="team__item-img" src="img/team2.jpg" alt="">
-                            <h3 class="team__item-title">Лущенко из Дубравии</h3>
-                            <p class="team__item-text">Лучший лущитель шишек к западу от березняка</p>
-                        <div class="team__icon-box">
-                            <a href="#"><i class="icon-vkontakte"></i></a>
-                            <a href="#"><i class="icon-whatsapp"></i></a>
-                        </div>
-                    </div>
-                    <div class="team__item">
-                            <img class="team__item-img" src="img/team3.jpg" alt="">
-                            <h3 class="team__item-title">Летун</h3>
-                            <p class="team__item-text">Координатор по сбору и поиску ресурсов</p>
-                        <div class="team__icon-box">
-                            <a href="#"><i class="icon-vkontakte"></i></a>
-                            <a href="#"><i class="icon-whatsapp"></i></a>
-                        </div>
-                    </div>
+                                <?php
+                                if(!empty($row['team_vk']['url'])) {
+                                    ?>                           
+                                        <a href="<?= $row ['team_twitter']['url'] ?>" target="<?= $row ['team_twitter']['target'] ?>"><i class="icon-twitter"></i></a>                            
+                                    <?php
+                                }                          
+                                if(!empty($row['team_vk']['url'])) {
+                                    ?>
+                                        <a href="<?= $row ['team_vk']['url'] ?>" target="<?= $row ['team_vk']['target'] ?>"><i class="icon-vkontakte"></i></a>
+                                    <?php
+                                }    
+                                if(!empty($row['team_instagram']['url'])) {
+                                    ?>
+                                        <a href="<?= $row ['team_instagram']['url'] ?>" target="<?= $row ['team_instagram']['target'] ?>"><i class="icon-instagram"></i></a>
+                                    <?php
+                                }
+                                if(!empty($row['team_whatsapp']['url'])) {
+                                    ?>
+                                        <a href="<?= $row ['team_whatsapp']['url'] ?>" target="<?= $row ['team_whatsapp']['target'] ?>"><i class="icon-whatsapp"></i></a>
+                                    <?php
+                                }
+                                ?>
+                            </div> 
+                        </div> 
+                    </div>                  
+                <?php    
+                }
+             ?>
+    </div>
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
+  </div>
+
+
+                                                                                          
             </div>
         </div>
     </div>

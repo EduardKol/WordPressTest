@@ -95,7 +95,7 @@ background-color: #1d1d1d;
 padding-top: 128px;
 padding-bottom: 271px;
 
-  /*background-size: contain, cover; */
+ /* background-size: contain, cover; */
 }
 .about__inner {
     display: grid;
@@ -511,5 +511,9 @@ margin: 0;
         .provide__inner {
             padding-top: 50px;
         }   
+}
+/*Slaider*/
+.swiper-container {
+    width: 100%;
 }
 
