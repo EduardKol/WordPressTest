@@ -14,8 +14,7 @@
                 </div>
                     <?php
                 }
-                ?>
-                
+                ?>                
             </div>
         </div>
     </div>
@@ -84,25 +83,22 @@
 <div class="provide" id="provide">
     <div class="container">
         <div class="block__head inverse">
-            <h2 class="block__title">Мы предоставляем вам всё</h2>
-            <p class="block__text">Может быть, не всё, но кое-что мы вам предоставим.</p>
+            <h2 class="block__title"><?= CFS()->get('provide_title'); ?></h2>
+            <p class="block__text"><?= CFS()->get('provide_text'); ?></p>
         </div>
-        <div class="provide__inner">
+        <div class="provide__inner">        
+                <?php 
+                $loop = CFS()->get('provide_card');
+                foreach ($loop as $row) {
+                    ?>
                 <div class="provide__item">
-                            <i class="icon-chart-line"></i>
-                            <h3 class="provide__item-title">Лесная аналитика</h3>
-                            <p class="provide__item-text">Всё что вы хотите знать о рынке орехов</p>
+                <img src="<?= $row ['provide_card_img'] ?>" alt="">
+                    <h3 class="provide__item-title"><?= $row ['provide_card_title'] ?></h3>
+                    <p class="provide__item-text"><?= $row ['provide_card_text'] ?></p>
                 </div>
-                <div class="provide__item">
-                    <i class="icon-heart"></i>
-                    <h3 class="provide__item-title">Мы любим орехи</h3>
-                    <p class="provide__item-text">Вы тоже их полюбите</p>
-                </div>
-            <div class="provide__item">
-                <i class="icon-upload-cloud-outline"></i>
-                <h3 class="provide__item-title">Облачные решения</h3>
-                <p class="provide__item-text">Орехи туда не лезут, но польза всё равно есть...</p>
-            </div>
+                    <?php
+                }
+                ?>                                    
         </div>
     </div>
 </div>   
@@ -110,31 +106,37 @@
 <div class="contact" id="contact">
     <div class="container">
         <div class="block__head inverse">
-            <h2 class="block__title">Наши контакты</h2>
-            <p class="block__text">Стучите громче</p>
+            <h2 class="block__title"><?= CFS()->get('footer_title'); ?></h2>
+            <p class="block__text"><?= CFS()->get('footer_text'); ?></p>
         </div>
         <div class="contact__inner">
             <div class="contact__icon-box">
                 <div class="contact__item">
                     <i class="icon-phone"></i>
-                    <div class="contact__text"><a href="tel:88005553535">8-800-555-35-35</a></div>
+                    <div class="contact__text"><a href="<?= CFS()->get('footer_phone'); ?>"><?= CFS()->get('footer_phone'); ?></a></div>
                 </div>
                 <div class="contact__item">
                     <i class="icon-location"></i>
-                    <div class="contact__text"><a href="https://goo.gl/maps/aRKT3CWJFs6AnMm76" target="_blank">адрес какого-то дупла</a></div>
+                    <div class="contact__text">                    
+                             <?php
+                                if(!empty(CFS()->get('footer_address')['url'])) {
+                                    ?>                           
+                                        <a 
+                                        href="<?= CFS()->get('footer_address')['url'] ?>" 
+                                        target="<?= CFS()->get('footer_address')['target'] ?>">
+                                        <?= CFS()->get('footer_address')['text'] ?>
+                                        </a>                            
+                                    <?php
+                                }
+                                ?>
+                    </div>
                 </div>
                 <div class="contact__item">
                     <i class="icon-mail"></i>
-                    <div class="contact__text"><a href="mailto:vduplemesta@mail.net"> виртуальное дупло</a></div>
+                    <div class="contact__text"><a href="<?= CFS()->get('footer_email'); ?>"> <?= CFS()->get('footer_email'); ?></a></div>
                 </div>
-            </div>
-                <form action="" class="contact__form">
-                <input class="contact__name" type="text" placeholder="Имя, звание, сколько лет">
-                <input class="contact__email" type="email" placeholder="В каком полку служили">
-                <input class="contact__number" type="number" placeholder="Цифры">
-                <textarea class="contact__textarea" placeholder="Стучать тут..."></textarea>
-                <input type="submit" class="contact__button" value="Отправить">
-                </form>
+            </div>               
+                <?php the_content(); ?>
         </div>
     </div>
 </div>
